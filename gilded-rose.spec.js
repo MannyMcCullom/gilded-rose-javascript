@@ -1,16 +1,18 @@
 import { expect, describe, it } from "vitest";
-import { Item, items, updateQuality } from "./gilded-rose.js";
+import { Vest, Brie, Elixir, Sulfuras, Pass, Cake, Item, items } from "./gilded-rose.js";
 
 describe("updateQuality", () => {
   it("Reduces quality and sellIn of basic items by 1.", () => {
-    const testItem = new Item("basic", 5, 3);
+    // const testItem = new Item('basic', 10, 20);
+    const testItem = new Vest('', '', '');
 
     items.push(testItem);
+    console.log(testItem);
+    testItem.updateQuality();
+    console.log(testItem);
 
-    updateQuality();
-
-    expect(testItem.quality).toBe(2);
-    expect(testItem.sellIn).toBe(4);
+    expect(testItem.sellIn).toBe(9);
+    expect(testItem.quality).toBe(19);
   });
 
   // Once the sellIn days is less then zero, quality degrades twice as fast.
@@ -19,7 +21,7 @@ describe("updateQuality", () => {
 
     items.push(testItem);
 
-    updateQuality();
+    testItem.updateQuality();
 
     expect(testItem.sellIn).toBe(-2);
     expect(testItem.quality).toBe(1);
@@ -31,7 +33,7 @@ describe("updateQuality", () => {
 
     items.push(testItem);
 
-    updateQuality();
+    testItem.updateQuality();
 
     expect(testItem.sellIn).toBe(-2);
     expect(testItem.quality).toBe(0);
@@ -43,7 +45,7 @@ describe("updateQuality", () => {
 
     items.push(testItem);
 
-    updateQuality();
+    testItem.updateQuality();
 
     expect(testItem.sellIn).toBe(9);
     expect(testItem.quality).toBe(6);
@@ -55,7 +57,7 @@ describe("updateQuality", () => {
 
     items.push(testItem);
 
-    updateQuality();
+    testItem.updateQuality();
 
     expect(testItem.sellIn).toBe(9);
     expect(testItem.quality).toBe(50);
@@ -68,7 +70,7 @@ describe("updateQuality", () => {
 
     items.push(testItem);
 
-    updateQuality();
+    testItem.updateQuality();
 
     expect(testItem.sellIn).toBe(0);
     expect(testItem.quality).toBe(12);
@@ -81,7 +83,7 @@ describe("updateQuality", () => {
 
     items.push(testItem);
 
-    updateQuality();
+    testItem.updateQuality();
 
     expect(testItem.sellIn).toBe(14);
     expect(testItem.quality).toBe(13);
@@ -95,7 +97,7 @@ describe("updateQuality", () => {
 
     items.push(testItem);
 
-    updateQuality();
+    testItem.updateQuality();
 
     expect(testItem.sellIn).toBe(9);
     expect(testItem.quality).toBe(14);
@@ -109,7 +111,7 @@ describe("updateQuality", () => {
 
     items.push(testItem);
 
-    updateQuality();
+    testItem.updateQuality();
 
     expect(testItem.sellIn).toBe(4);
     expect(testItem.quality).toBe(15);
@@ -123,11 +125,11 @@ describe("updateQuality", () => {
 
     items.push(testItem);
 
-    updateQuality();
+    testItem.updateQuality();
 
     expect(testItem.sellIn).toBe(-1);
     expect(testItem.quality).toBe(0);
   });
 });
 
-console.log(items);
+// console.log(items);
