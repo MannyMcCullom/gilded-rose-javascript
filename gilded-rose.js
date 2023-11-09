@@ -63,5 +63,8 @@ export const updateQuality = () => {
         }
       }
     }
+    if (item.quality < 0) {
+      item.quality = 0;
+    }
   }
 };
