@@ -129,3 +129,5 @@ describe("updateQuality", () => {
     expect(testItem.quality).toBe(0);
   });
 });
+
+console.log(items);
